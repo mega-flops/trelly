@@ -1,0 +1,14 @@
+.done {
+  text-decoration: line-through;
+}
+.noncond {
+  text-align: left;
+  padding: 0px 15px;
+  border: 5px solid black;
+}
+.itemSelected {
+  border: 5px solid blue;
+}
+.priority {
+  background-color: orange;
+}

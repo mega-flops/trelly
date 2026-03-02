@@ -1,0 +1,5 @@
+.mainpage {
+  gap: 30px;
+  display: flex;
+  flex-direction: row;
+}
