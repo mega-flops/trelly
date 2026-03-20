@@ -17,9 +17,7 @@ export const getTask = (boardId: string | null, selectedTaskId: string) => {
       "/tasks/" +
       selectedTaskId,
     {
-      headers: {
-        "api-key": "d4f8ead1-df4a-4d4c-87db-1cfaa6822e5b",
-      },
+      headers: prepareHeaders(),
     },
   ).then((res) => res.json());
   return promise;
@@ -37,11 +35,19 @@ type GlobalTaskListItemAttributes = {
   priority: number;
   addedAt: string;
 };
+const prepareHeaders = () => {
+  const apiKey = import.meta.env.VITE_API_KEY;
+  if (!apiKey) return undefined;
+
+  return {
+    "api-key": apiKey,
+  };
+};
 export const getTasks = () => {
   const promise: Promise<{ data: Array<GlobalTaskListItem> }> = fetch(
     "https://trelly.it-incubator.app/api/1.0/boards/tasks/",
     {
-      headers: { "api-key": "d4f8ead1-df4a-4d4c-87db-1cfaa6822e5b" },
+      headers: prepareHeaders(),
     },
   ).then((res) => res.json());
   return promise;
